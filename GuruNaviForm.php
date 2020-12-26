@@ -24,7 +24,13 @@
 	<?php
 		$error = $_GET["error"];
 		if(intval($error) === 1) {
+			print('フリーワードと住所を入力してください');
+		}
+		if(intval($error) === 2) {
 			print('フリーワードを入力してください');
+		}
+		if(intval($error) === 3) {
+			print('住所を入力してください');
 		}
 	?>
 
