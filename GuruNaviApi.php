@@ -21,7 +21,6 @@ class GuruNaviApi {
 		}
 
 		$dataList = $this->getRestaurantDataList($res['rest']);
-		// var_dump($dataList);
 		return $dataList;
 	}
 
