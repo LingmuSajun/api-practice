@@ -1,16 +1,18 @@
 <?php
 class GuruNaviApi {
-	public function __construct($freeWord) {
+	public function __construct($freeword, $address) {
 		$this->url = "https://api.gnavi.co.jp/RestSearchAPI/v3/";
 		// アクセスキーの利用期限 : 2021/03/26
 		$this->keyId = '';
-		$this->freeWord = $freeWord;
+		$this->freeword = $freeword;
+		$this->address = $address;
 	}
 
 	public function getResponse() {
 		$params = [];
 		$params['keyid'] = $this->keyId;
-		$params['freeword'] = $this->freeWord;
+		$params['freeword'] = $this->freeword;
+		$params['address'] = $this->address;
 		$url = $this->getUrlWithParam($params);
 
 		$res = $this->callApi($url);
