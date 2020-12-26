@@ -1,12 +1,14 @@
 <?php
 	$freeword = $_GET["freeword/"];
-	if(empty($freeword)) {
+	$address = $_GET["address/"];
+	if(empty($freeword) && empty($address)) {
 		header('Location: GuruNaviForm.php?error=1');
 		exit;
-	}
-	$address = $_GET["address/"];
-	if(empty($address)) {
+	} elseif(empty($freeword)) {
 		header('Location: GuruNaviForm.php?error=2');
+		exit;
+	} elseif(empty($address)) {
+		header('Location: GuruNaviForm.php?error=3');
 		exit;
 	}
 
