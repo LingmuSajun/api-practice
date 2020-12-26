@@ -21,16 +21,17 @@
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
 <pre>
-	<h6>フリーワード入力</h6>
 	<?php
 		$error = $_GET["error"];
 		if(intval($error) === 1) {
-			print('キーワードを入力してください');
+			print('フリーワードを入力してください');
 		}
 	?>
-	<form action="GuruNaviDisp.php" method="get">
-		<input type="text" name="keyword/"><br/>
-		<input type="submit" value="送信">
+
+	<form action="GuruNaviDisp.php"method="get">
+	<span>フリーワード </span><input type="text" name="freeword/">
+	<span>住所 </span><input type="text" name="address/">
+	<input type="submit" value="送信">
 	</form>
 </pre>
 </main>
