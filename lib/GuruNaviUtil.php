@@ -7,9 +7,16 @@ class GuruNaviUtil {
 		'ja', // 日本語
 		'en', // 英語
 		'zh_cn', // 中国語 (簡体字)
-		'zh_tw', // 中国語 (繁体字)
 		'ko', // 韓国語
 		'vi', // ベトナム語
+	];
+
+	public $titleList = [
+		'ja' => 'ぐるなびAPIを使って店舗検索',
+		'en' => 'Searching for restaurants using the Gurunavi API',
+		'zh_cn' => '使用Gurunavi API搜索餐厅',
+		'ko' => 'Gurunavi API를 사용하여 레스토랑 검색',
+		'vi' => 'Tìm kiếm nhà hàng bằng API Gurunavi',
 	];
 
 	public $validationErrorList = [
@@ -24,11 +31,6 @@ class GuruNaviUtil {
 			3 => 'Please enter your address.',
 		],
 		'zh_cn' => [
-			1 => '',
-			2 => '',
-			3 => '',
-		],
-		'zh_tw' => [
 			1 => '',
 			2 => '',
 			3 => '',
@@ -55,25 +57,25 @@ class GuruNaviUtil {
 			self::TEXT_ADDRESS => 'Address',
 		],
 		'zh_cn' => [
-			self::TEXT_KEYWORD => 'aaa',
-			self::TEXT_ADDRESS => 'bbb',
-		],
-		'zh_tw' => [
-			self::TEXT_KEYWORD => 'aaa',
-			self::TEXT_ADDRESS => 'bbb',
+			self::TEXT_KEYWORD => '关键词',
+			self::TEXT_ADDRESS => '地址',
 		],
 		'ko' => [
-			self::TEXT_KEYWORD => '키워드',
+			self::TEXT_KEYWORD => '예어',
 			self::TEXT_ADDRESS => '주소',
 		],
 		'vi' => [
-			self::TEXT_KEYWORD => 'aaa',
-			self::TEXT_ADDRESS => 'bbb',
+			self::TEXT_KEYWORD => 'từ khóa',
+			self::TEXT_ADDRESS => 'Địa chỉ',
 		],
 	];
 
 	public function __construct($lang) {
 		$this->lang = $this->__getLanguage($lang);
+	}
+
+	public function getTitle() {
+		return $this->titleList[$this->lang];
 	}
 
 	public function getFormText($textType) {

@@ -9,7 +9,7 @@
 	$guruNaviUtil->validate($lang, $keyword, $address);
 
 	require_once 'GuruNaviApi.php';
-	$apiObj = new GuruNaviApi($keyword, $address);
+	$apiObj = new GuruNaviApi($lang, $keyword, $address);
 	$list = $apiObj->getResponse();
 ?>
 

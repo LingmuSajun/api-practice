@@ -1,9 +1,10 @@
 <?php
 class GuruNaviApi {
-	public function __construct($keyword, $address) {
-		$this->url = "https://api.gnavi.co.jp/RestSearchAPI/v3/";
+	public function __construct($lang, $keyword, $address) {
+		$this->url = "https://api.gnavi.co.jp/ForeignRestSearchAPI/v3/";
 		// アクセスキーの利用期限 : 2021/03/26
 		$this->keyId = '';
+		$this->lang = $lang;
 		$this->keyword = $keyword;
 		$this->address = $address;
 	}
@@ -11,6 +12,7 @@ class GuruNaviApi {
 	public function getResponse() {
 		$params = [];
 		$params['keyid'] = $this->keyId;
+		$params['lang'] = $this->lang;
 		$params['freeword'] = $this->keyword;
 		$params['address'] = $this->address;
 		$url = $this->getUrlWithParam($params);
@@ -50,12 +52,11 @@ class GuruNaviApi {
 		$count = 0;
 		$res = [];
 		foreach($list as $key => $data) {
-			$res[$key]['name'] = $data['name'];
-			$res[$key]['category'] = $data['category'];
+			$res[$key]['name'] = $data['name']['name'];
+			$res[$key]['category'] = $data['categories']['category_name_l'][0];
 			$res[$key]['url'] = $data['url'];
-			$res[$key]['image_url_1'] = $data['image_url']['shop_image1'];
-			$res[$key]['image_url_2'] = $data['image_url']['shop_image2'];
-			$res[$key]['address'] = $data['address'];
+			$res[$key]['image_url_1'] = $data['image_url']['thumbnail'];
+			$res[$key]['address'] = $data['contacts']['address'];
 
 			if($count === 10) {
 				return $res;
