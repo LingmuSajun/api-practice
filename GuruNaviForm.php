@@ -1,3 +1,13 @@
+<?php
+require_once 'lib/GuruNaviUtil.php';
+
+$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+$lang = $guruNaviUtil->lang;
+$errorText = $guruNaviUtil->getValidationErrorText($_GET["error"]);
+$textKeyword = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_KEYWORD);
+$textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -22,22 +32,16 @@
 </a>
 <pre>
 	<?php
-		$error = $_GET["error"];
-		if(intval($error) === 1) {
-			print('フリーワードと住所を入力してください');
-		}
-		if(intval($error) === 2) {
-			print('フリーワードを入力してください');
-		}
-		if(intval($error) === 3) {
-			print('住所を入力してください');
-		}
+	if(!empty($errorText)) {
+		print($errorText);
+	}
 	?>
 
 	<form action="GuruNaviDisp.php"method="get">
-	<span>フリーワード </span><input type="text" name="freeword/">
-	<span>住所 </span><input type="text" name="address/">
+	<span><?php print($textKeyword); ?> </span><input type="text" name="freeword/">
+	<span><?php print($textAddress); ?> </span><input type="text" name="address/">
 	<input type="submit" value="送信">
+	<input type="hidden" name="lang" value="<?php print($lang); ?>">
 	</form>
 </pre>
 </main>

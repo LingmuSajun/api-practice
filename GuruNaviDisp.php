@@ -1,19 +1,14 @@
 <?php
+	require_once 'lib/GuruNaviUtil.php';
+	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+	$lang = $guruNaviUtil->lang;
+
 	$freeword = $_GET["freeword/"];
 	$address = $_GET["address/"];
-	if(empty($freeword) && empty($address)) {
-		header('Location: GuruNaviForm.php?error=1');
-		exit;
-	} elseif(empty($freeword)) {
-		header('Location: GuruNaviForm.php?error=2');
-		exit;
-	} elseif(empty($address)) {
-		header('Location: GuruNaviForm.php?error=3');
-		exit;
-	}
+
+	$guruNaviUtil->validate($lang, $freeword, $address);
 
 	require_once 'GuruNaviApi.php';
-
 	$apiObj = new GuruNaviApi($freeword, $address);
 	$list = $apiObj->getResponse();
 ?>
