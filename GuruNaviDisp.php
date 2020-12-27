@@ -8,9 +8,9 @@
 
 	$guruNaviUtil->validate($lang, $keyword, $address);
 
-	require_once 'GuruNaviApi.php';
-	$apiObj = new GuruNaviApi($lang, $keyword, $address);
-	$list = $apiObj->getResponse();
+	require_once 'API/ForeignRestSearchAPI.php';
+	$frsAPIObj = new ForeignRestSearchAPI($lang, $keyword, $address);
+	$list = $frsAPIObj->getResponse();
 ?>
 
 <!doctype html>

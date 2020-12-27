@@ -2,6 +2,8 @@
 class GuruNaviUtil {
 	const TEXT_KEYWORD = 0;
 	const TEXT_ADDRESS = 1;
+	// アクセスキーの利用期限 : 2021/03/26
+	const API_KEY_ID = '';
 
 	public $languageList = [
 		'ja', // 日本語

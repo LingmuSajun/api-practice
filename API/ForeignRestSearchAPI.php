@@ -1,9 +1,9 @@
 <?php
-class GuruNaviApi {
+class ForeignRestSearchAPI {
 	public function __construct($lang, $keyword, $address) {
 		$this->url = "https://api.gnavi.co.jp/ForeignRestSearchAPI/v3/";
-		// アクセスキーの利用期限 : 2021/03/26
-		$this->keyId = '';
+		require_once 'lib/GuruNaviUtil.php';
+		$this->keyId = GuruNaviUtil::API_KEY_ID;
 		$this->lang = $lang;
 		$this->keyword = $keyword;
 		$this->address = $address;
