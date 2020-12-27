@@ -30,6 +30,11 @@ $textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
 <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
+<a href="GuruNaviForm.php?lang=ja">日本語</a>
+<a href="GuruNaviForm.php?lang=en">English</a>
+<a href="GuruNaviForm.php?lang=zh_cn">中文</a>
+<a href="GuruNaviForm.php?lang=ko">한국</a>
+<a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
 	<?php
 	if(!empty($errorText)) {
@@ -38,7 +43,7 @@ $textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
 	?>
 
 	<form action="GuruNaviDisp.php"method="get">
-	<span><?php print($textKeyword); ?> </span><input type="text" name="freeword/">
+	<span><?php print($textKeyword); ?> </span><input type="text" name="keyword/">
 	<span><?php print($textAddress); ?> </span><input type="text" name="address/">
 	<input type="submit" value="送信">
 	<input type="hidden" name="lang" value="<?php print($lang); ?>">

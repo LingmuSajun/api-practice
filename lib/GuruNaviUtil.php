@@ -14,14 +14,29 @@ class GuruNaviUtil {
 
 	public $validationErrorList = [
 		'ja' => [
-			1 => 'フリーワードと住所を入力してください',
-			2 => 'フリーワードを入力してください',
+			1 => 'キーワードと住所を入力してください',
+			2 => 'キーワードを入力してください',
 			3 => '住所を入力してください',
 		],
 		'en' => [
 			1 => 'Please enter keyword and your address.',
 			2 => 'Please enter keyword.',
 			3 => 'Please enter your address.',
+		],
+		'zh_cn' => [
+			1 => '',
+			2 => '',
+			3 => '',
+		],
+		'zh_tw' => [
+			1 => '',
+			2 => '',
+			3 => '',
+		],
+		'ko' => [
+			1 => '',
+			2 => '',
+			3 => '',
 		],
 		'vi' => [
 			1 => '',
@@ -32,12 +47,24 @@ class GuruNaviUtil {
 
 	public $formTextList = [
 		'ja' => [
-			self::TEXT_KEYWORD => 'フリーワード',
+			self::TEXT_KEYWORD => 'キーワード',
 			self::TEXT_ADDRESS => '住所',
 		],
 		'en' => [
 			self::TEXT_KEYWORD => 'Keyword',
 			self::TEXT_ADDRESS => 'Address',
+		],
+		'zh_cn' => [
+			self::TEXT_KEYWORD => 'aaa',
+			self::TEXT_ADDRESS => 'bbb',
+		],
+		'zh_tw' => [
+			self::TEXT_KEYWORD => 'aaa',
+			self::TEXT_ADDRESS => 'bbb',
+		],
+		'ko' => [
+			self::TEXT_KEYWORD => '키워드',
+			self::TEXT_ADDRESS => '주소',
 		],
 		'vi' => [
 			self::TEXT_KEYWORD => 'aaa',
@@ -57,14 +84,14 @@ class GuruNaviUtil {
 		return $this->validationErrorList[$this->lang][$errorNo];
 	}
 
-	function validate($lang, $freeword, $address) {
+	function validate($lang, $keyword, $address) {
 		$paramArray = [];
 		$paramArray['lang'] = $lang;
 
 		$url = 'GuruNaviForm.php';
-		if(empty($freeword) && empty($address)) {
+		if(empty($keyword) && empty($address)) {
 			$paramArray['error'] = 1;
-		} elseif(empty($freeword)) {
+		} elseif(empty($keyword)) {
 			$paramArray['error'] = 2;
 		} elseif(empty($address)) {
 			$paramArray['error'] = 3;

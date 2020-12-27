@@ -3,13 +3,13 @@
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
 	$lang = $guruNaviUtil->lang;
 
-	$freeword = $_GET["freeword/"];
+	$keyword = $_GET["keyword/"];
 	$address = $_GET["address/"];
 
-	$guruNaviUtil->validate($lang, $freeword, $address);
+	$guruNaviUtil->validate($lang, $keyword, $address);
 
 	require_once 'GuruNaviApi.php';
-	$apiObj = new GuruNaviApi($freeword, $address);
+	$apiObj = new GuruNaviApi($keyword, $address);
 	$list = $apiObj->getResponse();
 ?>
 
@@ -36,7 +36,7 @@
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
 <pre>
-フリーワードは「<?php print($freeword); ?>」です<br/>
+キーワードは「<?php print($keyword); ?>」です<br/>
 住所は「<?php print($address); ?>」です<br/>
 
 <?php
