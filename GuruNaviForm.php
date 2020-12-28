@@ -42,26 +42,26 @@ $textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
 <a href="GuruNaviForm.php?lang=ko">한국</a>
 <a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
-	<form action="GuruNaviForm2.php"method="get">
-		<span><?php print($textCategory); ?> </span>
-		<select name="category_l_code">
-			<?php
-			foreach ($categoryList as $key => $categoryData) {
-				echo '<option value="', $categoryData['category_l_code'], '">', $categoryData['category_l_name'], '</option>';
-			}
-			?>
-		</select>
-		<span><?php print($textPrefs); ?> </span>
-		<select name="pref_code">
-			<?php
-			foreach ($prefList as $key => $prefData) {
-				echo '<option value="', $prefData['pref_code'], '">', $prefData['pref_name'], '</option>';
-			}
-			?>
-		</select>
-		<input type="submit" value="<?php print($textNext); ?>">
-		<input type="hidden" name="lang" value="<?php print($lang); ?>">
-	</form>
+<form action="GuruNaviForm2.php"method="get">
+	<span><?php print($textCategory); ?> </span>
+	<select name="category_l_code">
+		<?php
+		foreach ($categoryList as $key => $categoryData) {
+			echo '<option value="', $categoryData['category_l_code'], '">', $categoryData['category_l_name'], '</option>';
+		}
+		?>
+	</select>
+	<span><?php print($textPrefs); ?> </span>
+	<select name="pref_code">
+		<?php
+		foreach ($prefList as $key => $prefData) {
+			echo '<option value="', $prefData['pref_code'], '">', $prefData['pref_name'], '</option>';
+		}
+		?>
+	</select>
+	<input type="submit" value="<?php print($textNext); ?>">
+	<input type="hidden" name="lang" value="<?php print($lang); ?>">
+</form>
 </pre>
 </main>
 </body>
