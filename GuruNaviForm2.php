@@ -14,7 +14,6 @@
 	$textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
 	$prefName = $guruNaviUtil->getPrefNameByCode($prefCode);
 	// 小エリア
-	$textSmallArea = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SMALL_AREA);;
 	$smallAreaList = $guruNaviUtil->getSmallAreaList($prefCode);
 	// 送信ボタン
 	$textSubmit = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SUBMIT);
@@ -50,7 +49,7 @@
 <?php print($textPrefs); ?> : <?php print($prefName); ?><br/>
 
 	<form action="GuruNaviDisp.php"method="get">
-		<span><?php print($textSmallArea); ?> </span>
+		<div class="cp_ipselect cp_sl05">
 		<select name="areacode_s">
 			<?php
 			foreach ($smallAreaList as $key => $areaData) {
@@ -58,13 +57,14 @@
 			}
 			?>
 		</select>
-		<input type="submit" value="<?php print($textSubmit); ?>">
+		</div>
+		<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink">
 		<input type="hidden" name="pref_code" value="<?php print($prefCode); ?>">
 		<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
 		<input type="hidden" name="lang" value="<?php print($lang); ?>">
 	</form>
 
-	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>">
+	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </pre>
 </main>
 </body>

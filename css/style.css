@@ -11,7 +11,7 @@ header {
   left: 0;
   width: 300px;
   height: 100vh;
-  background-color: #7CA4D7
+  background-color: #7dc9f5
 }
 header h1 {
   font-size: 100%;
@@ -39,7 +39,7 @@ pre {
   width: 540px;
 }
 hr {
-  border-color: #7CA4D7;
+  border-color: #7dc9f5;
 }
 .content {
   margin-top: 30px;
@@ -53,4 +53,63 @@ time {
 }
 article {
   margin-top: 30px;
+}
+/* プルダウンメニュー */
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl05 {
+	position: relative;
+	border-radius: 2px;
+  border-radius: 50px;
+	background: #7dc9f5;
+}
+.cp_ipselect.cp_sl05::before {
+  position: absolute;
+  /* position: relative; */
+	top: 2.5em;
+	right: 0.8em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #ffffff;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl05 select {
+	padding: 8px 38px 8px 8px;
+	color: #ffffff;
+}
+/* ボタン */
+.btn--pink,
+a.btn--pink {
+  color: #fff;
+  background-color: #e45cc2;
+}
+.btn--pink:hover,
+a.btn--pink:hover {
+  color: #fff;
+  background: #eba3d9;
 }

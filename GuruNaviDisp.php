@@ -70,7 +70,7 @@
 	}
 ?>
 
-	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>">
+	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </pre>
 </main>
 </body>

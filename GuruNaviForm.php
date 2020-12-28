@@ -5,10 +5,8 @@ $lang = $guruNaviUtil->lang;
 // タイトル
 $title = $guruNaviUtil->getTitle();
 // カテゴリー
-$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
 $categoryList = $guruNaviUtil->getCategoryList();
 // 都道府県
-$textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
 $prefList = $guruNaviUtil->getPrefList();
 // 次へボタン
 $textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
@@ -43,7 +41,7 @@ $textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
 <a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
 <form action="GuruNaviForm2.php"method="get">
-	<span><?php print($textCategory); ?> </span>
+	<div class="cp_ipselect cp_sl05">
 	<select name="category_l_code">
 		<?php
 		foreach ($categoryList as $key => $categoryData) {
@@ -51,7 +49,8 @@ $textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
 		}
 		?>
 	</select>
-	<span><?php print($textPrefs); ?> </span>
+	</div>
+	<div class="cp_ipselect cp_sl05">
 	<select name="pref_code">
 		<?php
 		foreach ($prefList as $key => $prefData) {
@@ -59,7 +58,8 @@ $textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
 		}
 		?>
 	</select>
-	<input type="submit" value="<?php print($textNext); ?>">
+	</div>
+	<input type="submit" value="<?php print($textNext); ?>" class="btn btn--pink">
 	<input type="hidden" name="lang" value="<?php print($lang); ?>">
 </form>
 </pre>
