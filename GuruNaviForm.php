@@ -2,16 +2,16 @@
 require_once 'lib/GuruNaviUtil.php';
 $guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
 $lang = $guruNaviUtil->lang;
+// タイトル
 $title = $guruNaviUtil->getTitle();
-$errorText = $guruNaviUtil->getValidationErrorText($_GET["error"]);
 // カテゴリー
 $textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
 $categoryList = $guruNaviUtil->getCategoryList();
 // 都道府県
 $textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
 $prefList = $guruNaviUtil->getPrefList();
-// 送信ボタン
-$textSubmit = $guruNaviUtil->getSubmitText();
+// 次へボタン
+$textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
 ?>
 
 <!doctype html>
@@ -42,12 +42,6 @@ $textSubmit = $guruNaviUtil->getSubmitText();
 <a href="GuruNaviForm.php?lang=ko">한국</a>
 <a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
-	<?php
-	if(!empty($errorText)) {
-		print($errorText);
-	}
-	?>
-
 	<form action="GuruNaviForm2.php"method="get">
 		<span><?php print($textCategory); ?> </span>
 		<select name="category_l_code">
@@ -65,7 +59,7 @@ $textSubmit = $guruNaviUtil->getSubmitText();
 			}
 			?>
 		</select>
-		<input type="submit" value="<?php print($textSubmit); ?>">
+		<input type="submit" value="<?php print($textNext); ?>">
 		<input type="hidden" name="lang" value="<?php print($lang); ?>">
 	</form>
 </pre>

@@ -3,6 +3,9 @@ class GuruNaviUtil {
 	const TEXT_CATEGORY = 1;
 	const TEXT_PREFS = 2;
 	const TEXT_SMALL_AREA = 3;
+	const TEXT_NEXT = 4;
+	const TEXT_SUBMIT = 5;
+	const TEXT_RETURN = 6;
 	// アクセスキーの利用期限 : 2021/03/26
 	const API_KEY_ID = '';
 
@@ -55,35 +58,42 @@ class GuruNaviUtil {
 			self::TEXT_CATEGORY => 'カテゴリー',
 			self::TEXT_PREFS => '都道府県',
 			self::TEXT_SMALL_AREA => '地名',
+			self::TEXT_NEXT => '次へ',
+			self::TEXT_SUBMIT => '送信',
+			self::TEXT_RETURN => '戻る',
 		],
 		'en' => [
 			self::TEXT_CATEGORY => 'Category',
 			self::TEXT_PREFS => 'Prefectures',
-			self::TEXT_SMALL_AREA => 'area',
+			self::TEXT_SMALL_AREA => 'Area',
+			self::TEXT_NEXT => 'Next',
+			self::TEXT_SUBMIT => 'Submit',
+			self::TEXT_RETURN => 'Return',
 		],
 		'zh_cn' => [
 			self::TEXT_CATEGORY => '类别',
 			self::TEXT_PREFS => '地区',
 			self::TEXT_SMALL_AREA => '区',
+			self::TEXT_NEXT => '下一个',
+			self::TEXT_SUBMIT => '发送',
+			self::TEXT_RETURN => '返回',
 		],
 		'ko' => [
 			self::TEXT_CATEGORY => '범주',
 			self::TEXT_PREFS => '도도부 현',
 			self::TEXT_SMALL_AREA => '영역',
+			self::TEXT_NEXT => '다음에',
+			self::TEXT_SUBMIT => '전송',
+			self::TEXT_RETURN => '돌아 가기',
 		],
 		'vi' => [
 			self::TEXT_CATEGORY => 'thể loại',
 			self::TEXT_PREFS => 'Các tỉnh',
 			self::TEXT_SMALL_AREA => 'khu vực',
+			self::TEXT_NEXT => 'kế tiếp',
+			self::TEXT_SUBMIT => 'Gửi',
+			self::TEXT_RETURN => 'Trở về',
 		],
-	];
-
-	private $submitTextList = [
-		'ja' => '送信',
-		'en' => 'submit',
-		'zh_cn' => '发送',
-		'ko' => '전송',
-		'vi' => 'Gửi',
 	];
 
 	public function __construct($lang) {
@@ -96,10 +106,6 @@ class GuruNaviUtil {
 
 	public function getFormText($textType) {
 		return $this->formTextList[$this->lang][$textType];
-	}
-
-	public function getSubmitText() {
-		return $this->submitTextList[$this->lang];
 	}
 
 	public function getCategoryList() {
@@ -203,6 +209,15 @@ class GuruNaviUtil {
 		$frsAPIObj->setRequestParams($categoryCode, $smallAreaCode);
 		$restList = $frsAPIObj->getResponse();
 		return $restList;
+	}
+
+	public function getReturnUrl() {
+		$paramArray = [];
+		$paramArray['lang'] = $this->lang;
+		$paramString = http_build_query($paramArray);
+		$url = 'GuruNaviForm.php';
+		$redirectUrl = $url . '?' . $paramString;
+		return $redirectUrl;
 	}
 
 	private function __getLanguage($lang) {

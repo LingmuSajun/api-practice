@@ -6,13 +6,18 @@
 	require_once 'lib/GuruNaviUtil.php';
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
 	// カテゴリー
+	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
 	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
 	// 小エリア
+	$textSmallArea = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SMALL_AREA);
 	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
 	// バリデーション
 	$guruNaviUtil->validate($categoryCode, $smallAreaCode);
 	// レストラン
 	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
+	// 戻るボタン
+	$textBack = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RETURN);
+	$returnUrl = $guruNaviUtil->getReturnUrl();
 ?>
 
 <!doctype html>
@@ -38,8 +43,8 @@
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
 <pre>
-カテゴリーは「<?php print($categoryName); ?>」です<br/>
-エリアは「<?php print($smallAreaName); ?>」です<br/>
+<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
+<?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
 
 <?php
 	$count = 0;
@@ -60,7 +65,7 @@
 	}
 ?>
 
-	<input type="button" onclick="location.href='GuruNaviForm.php'" value="戻る">
+	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>">
 </pre>
 </main>
 </body>
