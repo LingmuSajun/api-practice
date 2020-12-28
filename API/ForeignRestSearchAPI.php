@@ -28,8 +28,8 @@ class ForeignRestSearchAPI extends ParentAPI {
 			return false;
 		}
 
-		$dataList = $this->getRestaurantDataList($res[self::RESPONSE_KEY]);
-		return $dataList;
+		$res = $this->getRestaurantDataList($res[self::RESPONSE_KEY]);
+		return $res;
 	}
 
 	private function getRestaurantDataList($list) {

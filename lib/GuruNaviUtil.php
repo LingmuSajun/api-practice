@@ -96,13 +96,17 @@ class GuruNaviUtil {
 		return $this->submitTextList[$this->lang];
 	}
 
+	public function getPrefList() {
+		
+	}
+
 	public function getValidationErrorText($errorNo) {
 		return $this->validationErrorList[$this->lang][$errorNo];
 	}
 
-	function validate($lang, $keyword, $address) {
+	public function validate($keyword, $address) {
 		$paramArray = [];
-		$paramArray['lang'] = $lang;
+		$paramArray['lang'] = $this->lang;
 
 		$url = 'GuruNaviForm.php';
 		if(empty($keyword) && empty($address)) {
@@ -119,6 +123,14 @@ class GuruNaviUtil {
 			header('Location: ' . $redirectUrl);
 			exit;
 		}
+	}
+
+	public function getRestaurantList($keyword, $address) {
+		require_once 'API/ForeignRestSearchAPI.php';
+		$frsAPIObj = new ForeignRestSearchAPI($this->lang);
+		$frsAPIObj->setRequestParams($keyword, $address);
+		$restList = $frsAPIObj->getResponse();
+		return $restList;
 	}
 
 	private function __getLanguage($lang) {

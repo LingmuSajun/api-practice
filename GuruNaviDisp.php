@@ -1,17 +1,11 @@
 <?php
-	require_once 'lib/GuruNaviUtil.php';
-	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
-	$lang = $guruNaviUtil->lang;
-
 	$keyword = $_GET["keyword/"];
 	$address = $_GET["address/"];
 
-	$guruNaviUtil->validate($lang, $keyword, $address);
-
-	require_once 'API/ForeignRestSearchAPI.php';
-	$frsAPIObj = new ForeignRestSearchAPI($lang);
-	$frsAPIObj->setRequestParams($keyword, $address);
-	$list = $frsAPIObj->getResponse();
+	require_once 'lib/GuruNaviUtil.php';
+	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+	$guruNaviUtil->validate($keyword, $address);
+	$restList = $guruNaviUtil->getRestaurantList($keyword, $address);
 ?>
 
 <!doctype html>
@@ -42,7 +36,7 @@
 
 <?php
 	$count = 0;
-	foreach($list as $key => $data) {
+	foreach($restList as $key => $data) {
 		$count++;
 		print('No. ' . $count . '<br/>');
 		print('店舗名 : ' . $data['name'] . '<br/>');
