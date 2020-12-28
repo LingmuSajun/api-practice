@@ -9,7 +9,8 @@
 	$guruNaviUtil->validate($lang, $keyword, $address);
 
 	require_once 'API/ForeignRestSearchAPI.php';
-	$frsAPIObj = new ForeignRestSearchAPI($lang, $keyword, $address);
+	$frsAPIObj = new ForeignRestSearchAPI($lang);
+	$frsAPIObj->setRequestParams($keyword, $address);
 	$list = $frsAPIObj->getResponse();
 ?>
 

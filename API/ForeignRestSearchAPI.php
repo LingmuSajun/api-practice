@@ -1,51 +1,35 @@
 <?php
-class ForeignRestSearchAPI {
-	public function __construct($lang, $keyword, $address) {
-		$this->url = "https://api.gnavi.co.jp/ForeignRestSearchAPI/v3/";
-		require_once 'lib/GuruNaviUtil.php';
-		$this->keyId = GuruNaviUtil::API_KEY_ID;
-		$this->lang = $lang;
+require_once 'API/ParentAPI.php';
+
+class ForeignRestSearchAPI extends ParentAPI {
+
+	const RESPONSE_KEY = 'rest';
+
+	public function __construct($lang) {
+		$this->apiURL = 'https://api.gnavi.co.jp/ForeignRestSearchAPI/v3/';
+		parent::__construct($lang);
+	}
+
+	public function setRequestParams($keyword, $address) {
 		$this->keyword = $keyword;
 		$this->address = $address;
 	}
 
 	public function getResponse() {
-		$params = [];
-		$params['keyid'] = $this->keyId;
-		$params['lang'] = $this->lang;
-		$params['freeword'] = $this->keyword;
-		$params['address'] = $this->address;
-		$url = $this->getUrlWithParam($params);
+		$paramArray = [];
+		$paramArray['keyid'] = $this->keyId;
+		$paramArray['lang'] = $this->lang;
+		$paramArray['freeword'] = $this->keyword;
+		$paramArray['address'] = $this->address;
+		$url = $this->getUrlWithParam($this->apiURL, $paramArray);
 
 		$res = $this->callApi($url);
-		if(!isset($res['rest']) || empty($res['rest'])) {
+		if(!isset($res[self::RESPONSE_KEY]) || empty($res[self::RESPONSE_KEY])) {
 			return false;
 		}
 
-		$dataList = $this->getRestaurantDataList($res['rest']);
+		$dataList = $this->getRestaurantDataList($res[self::RESPONSE_KEY]);
 		return $dataList;
-	}
-
-	private function getUrlWithParam($paramArray) {
-		$paramString = http_build_query($paramArray);
-		$url = $this->url . '?' . $paramString;
-		return $url;
-	}
-
-	private function callApi($url = false) {
-		$curl = curl_init();
-
-		curl_setopt($curl, CURLOPT_HTTPGET, 1);
-		curl_setopt($curl, CURLOPT_URL, $url); // 取得するURLを指定
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // 実行結果を文字列で返す
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // サーバー証明書の検証を行わない
-
-		$res = curl_exec($curl);
-
-		curl_close($curl);
-
-		$resArray = json_decode($res, true);
-		return $resArray;
 	}
 
 	private function getRestaurantDataList($list) {
