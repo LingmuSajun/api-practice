@@ -110,7 +110,7 @@ class GuruNaviUtil {
 	public function getCategoryList() {
 		session_start();
 		$sessionKey = $this->__getSessionKey('categoryList');
-		if (isset($_SESSION[$sessionKey])) {
+		if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey] > 0) {
 			return $_SESSION[$sessionKey];
 		}
 		require_once 'API/CategoryLargeSearchAPI.php';
@@ -133,7 +133,7 @@ class GuruNaviUtil {
 	public function getPrefList() {
 		session_start();
 		$sessionKey = $this->__getSessionKey('prefList');
-		if (isset($_SESSION[$sessionKey])) {
+		if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey] > 0) {
 			return $_SESSION[$sessionKey];
 		}
 		require_once 'API/PrefSearchAPI.php';
@@ -156,7 +156,7 @@ class GuruNaviUtil {
 	public function getSmallAreaList($prefCode) {
 		session_start();
 		$sessionKey = $this->__getSessionKey('smallAreaList' . '_' . $prefCode);
-		if (isset($_SESSION[$sessionKey])) {
+		if (isset($_SESSION[$sessionKey]) && $_SESSION[$sessionKey] > 0) {
 			return $_SESSION[$sessionKey];
 		}
 		require_once 'API/GAreaSmallSearchAPI.php';
@@ -183,6 +183,16 @@ class GuruNaviUtil {
 		$frsAPIObj->setRequestParams($categoryCode, $smallAreaCode);
 		$restList = $frsAPIObj->getResponse();
 		return $restList;
+	}
+
+	public function getLanguageUrl($lang) {
+		$currentUrl = $_SERVER['SCRIPT_NAME'];
+		$queryString = $_SERVER['QUERY_STRING'];
+		parse_str($queryString, $paramArray);
+		$paramArray['lang'] = $lang;
+		$queryString = http_build_query($paramArray);
+		$languageUrl = $currentUrl . '?' . $queryString;
+		return $languageUrl;
 	}
 
 	public function getReturnUrl() {
