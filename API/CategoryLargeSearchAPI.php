@@ -1,12 +1,12 @@
 <?php
 require_once 'API/ParentAPI.php';
 
-class PrefSearchAPI extends ParentAPI {
+class CategoryLargeSearchAPI extends ParentAPI {
 
-	const RESPONSE_KEY = 'pref';
+	const RESPONSE_KEY = 'category_l';
 
 	public function __construct($lang) {
-		$this->apiURL = 'https://api.gnavi.co.jp/master/PrefSearchAPI/v3/';
+		$this->apiURL = 'https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/';
 		parent::__construct($lang);
 	}
 

@@ -1,12 +1,16 @@
 <?php
 require_once 'lib/GuruNaviUtil.php';
-
 $guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
 $lang = $guruNaviUtil->lang;
 $title = $guruNaviUtil->getTitle();
 $errorText = $guruNaviUtil->getValidationErrorText($_GET["error"]);
-$textKeyword = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_KEYWORD);
-$textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
+// カテゴリー
+$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
+$categoryList = $guruNaviUtil->getCategoryList();
+// 都道府県
+$textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
+$prefList = $guruNaviUtil->getPrefList();
+// 送信ボタン
 $textSubmit = $guruNaviUtil->getSubmitText();
 ?>
 
@@ -44,11 +48,25 @@ $textSubmit = $guruNaviUtil->getSubmitText();
 	}
 	?>
 
-	<form action="GuruNaviDisp.php"method="get">
-	<span><?php print($textKeyword); ?> </span><input type="text" name="keyword/">
-	<span><?php print($textAddress); ?> </span><input type="text" name="address/">
-	<input type="submit" value="<?php print($textSubmit); ?>">
-	<input type="hidden" name="lang" value="<?php print($lang); ?>">
+	<form action="GuruNaviForm2.php"method="get">
+		<span><?php print($textCategory); ?> </span>
+		<select name="category_l_code">
+			<?php
+			foreach ($categoryList as $key => $categoryData) {
+				echo '<option value="', $categoryData['category_l_code'], '">', $categoryData['category_l_name'], '</option>';
+			}
+			?>
+		</select>
+		<span><?php print($textPrefs); ?> </span>
+		<select name="pref_code">
+			<?php
+			foreach ($prefList as $key => $prefData) {
+				echo '<option value="', $prefData['pref_code'], '">', $prefData['pref_name'], '</option>';
+			}
+			?>
+		</select>
+		<input type="submit" value="<?php print($textSubmit); ?>">
+		<input type="hidden" name="lang" value="<?php print($lang); ?>">
 	</form>
 </pre>
 </main>

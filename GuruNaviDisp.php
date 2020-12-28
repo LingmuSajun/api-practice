@@ -1,11 +1,18 @@
 <?php
-	$keyword = $_GET["keyword/"];
-	$address = $_GET["address/"];
+	$categoryCode = $_GET["category_l_code"];
+	$prefCode = $_GET["pref_code"];
+	$smallAreaCode = $_GET["areacode_s"];
 
 	require_once 'lib/GuruNaviUtil.php';
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
-	$guruNaviUtil->validate($keyword, $address);
-	$restList = $guruNaviUtil->getRestaurantList($keyword, $address);
+	// カテゴリー
+	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
+	// 小エリア
+	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
+	// バリデーション
+	$guruNaviUtil->validate($categoryCode, $smallAreaCode);
+	// レストラン
+	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
 ?>
 
 <!doctype html>
@@ -31,8 +38,8 @@
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
 <pre>
-キーワードは「<?php print($keyword); ?>」です<br/>
-住所は「<?php print($address); ?>」です<br/>
+カテゴリーは「<?php print($categoryName); ?>」です<br/>
+エリアは「<?php print($smallAreaName); ?>」です<br/>
 
 <?php
 	$count = 0;
@@ -41,7 +48,9 @@
 		print('No. ' . $count . '<br/>');
 		print('店舗名 : ' . $data['name'] . '<br/>');
 		print('カテゴリー : ' . $data['category'] . '<br/>');
+		print('電話番号 : ' . $data['tel'] . '<br/>');
 		print('住所 : ' . $data['address'] . '<br/>');
+		print('PR : ' . $data['pr'] . '<br/>');
 		print('
 		<a href="' . $data['url'] . '">' .
 			'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン">

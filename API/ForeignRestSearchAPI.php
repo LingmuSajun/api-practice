@@ -10,17 +10,17 @@ class ForeignRestSearchAPI extends ParentAPI {
 		parent::__construct($lang);
 	}
 
-	public function setRequestParams($keyword, $address) {
-		$this->keyword = $keyword;
-		$this->address = $address;
+	public function setRequestParams($categoryCode, $smallAreaCode) {
+		$this->categoryCode = $categoryCode;
+		$this->smallAreaCode = $smallAreaCode;
 	}
 
 	public function getResponse() {
 		$paramArray = [];
 		$paramArray['keyid'] = $this->keyId;
 		$paramArray['lang'] = $this->lang;
-		$paramArray['freeword'] = $this->keyword;
-		$paramArray['address'] = $this->address;
+		$paramArray['category_l'] = $this->categoryCode;
+		$paramArray['areacode_s'] = $this->smallAreaCode;
 		$url = $this->getUrlWithParam($this->apiURL, $paramArray);
 
 		$res = $this->callApi($url);
@@ -28,11 +28,11 @@ class ForeignRestSearchAPI extends ParentAPI {
 			return false;
 		}
 
-		$res = $this->getRestaurantDataList($res[self::RESPONSE_KEY]);
+		$res = $this->getRestaurantList($res[self::RESPONSE_KEY]);
 		return $res;
 	}
 
-	private function getRestaurantDataList($list) {
+	private function getRestaurantList($list) {
 		$count = 0;
 		$res = [];
 		foreach($list as $key => $data) {
@@ -40,7 +40,9 @@ class ForeignRestSearchAPI extends ParentAPI {
 			$res[$key]['category'] = $data['categories']['category_name_l'][0];
 			$res[$key]['url'] = $data['url'];
 			$res[$key]['image_url_1'] = $data['image_url']['thumbnail'];
+			$res[$key]['tel'] = $data['contacts']['tel'];
 			$res[$key]['address'] = $data['contacts']['address'];
+			$res[$key]['pr'] = $data['sales_points']['pr_short'];
 
 			if($count === 10) {
 				return $res;
