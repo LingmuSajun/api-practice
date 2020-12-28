@@ -5,6 +5,8 @@
 
 	require_once 'lib/GuruNaviUtil.php';
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+	// タイトル
+	$title = $guruNaviUtil->getTitle();
 	// カテゴリー
 	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
 	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
@@ -28,7 +30,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/style.css">
 
-<title>ぐるなびAPIを使って店舗検索</title>
+<title><?php print($title); ?></title>
 </head>
 <body>
 <header>
@@ -36,7 +38,7 @@
 </header>
 
 <main>
-<h2>ぐるなびAPIを使って店舗検索</h2>
+<h2><?php print($title); ?></h2>
 <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
