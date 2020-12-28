@@ -1,3 +1,17 @@
+<?php
+require_once 'lib/GuruNaviUtil.php';
+$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+$lang = $guruNaviUtil->lang;
+// タイトル
+$title = $guruNaviUtil->getTitle();
+// カテゴリー
+$categoryList = $guruNaviUtil->getCategoryList();
+// 都道府県
+$prefList = $guruNaviUtil->getPrefList();
+// 次へボタン
+$textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -8,7 +22,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/style.css">
 
-<title>ぐるなびAPIを使って店舗検索</title>
+<title><?php print($title); ?></title>
 </head>
 <body>
 <header>
@@ -16,29 +30,38 @@
 </header>
 
 <main>
-<h2>ぐるなびAPIを使って店舗検索</h2>
+<h2><?php print($title); ?></h2>
 <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
+<a href="GuruNaviForm.php?lang=ja">日本語</a>
+<a href="GuruNaviForm.php?lang=en">English</a>
+<a href="GuruNaviForm.php?lang=zh_cn">中文</a>
+<a href="GuruNaviForm.php?lang=ko">한국</a>
+<a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
-	<?php
-		$error = $_GET["error"];
-		if(intval($error) === 1) {
-			print('フリーワードと住所を入力してください');
+<form action="GuruNaviForm2.php"method="get">
+	<div class="cp_ipselect cp_sl05">
+	<select name="category_l_code">
+		<?php
+		foreach ($categoryList as $key => $categoryData) {
+			echo '<option value="', $categoryData['category_l_code'], '">', $categoryData['category_l_name'], '</option>';
 		}
-		if(intval($error) === 2) {
-			print('フリーワードを入力してください');
+		?>
+	</select>
+	</div>
+	<div class="cp_ipselect cp_sl05">
+	<select name="pref_code">
+		<?php
+		foreach ($prefList as $key => $prefData) {
+			echo '<option value="', $prefData['pref_code'], '">', $prefData['pref_name'], '</option>';
 		}
-		if(intval($error) === 3) {
-			print('住所を入力してください');
-		}
-	?>
-
-	<form action="GuruNaviDisp.php"method="get">
-	<span>フリーワード </span><input type="text" name="freeword/">
-	<span>住所 </span><input type="text" name="address/">
-	<input type="submit" value="送信">
-	</form>
+		?>
+	</select>
+	</div>
+	<input type="submit" value="<?php print($textNext); ?>" class="btn btn--pink">
+	<input type="hidden" name="lang" value="<?php print($lang); ?>">
+</form>
 </pre>
 </main>
 </body>

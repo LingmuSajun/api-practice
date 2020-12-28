@@ -1,25 +1,22 @@
 <?php
 	$categoryCode = $_GET["category_l_code"];
 	$prefCode = $_GET["pref_code"];
-	$smallAreaCode = $_GET["areacode_s"];
 
 	require_once 'lib/GuruNaviUtil.php';
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
+	$lang = $guruNaviUtil->lang;
 	// タイトル
 	$title = $guruNaviUtil->getTitle();
 	// カテゴリー
 	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
 	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
+	// 都道府県
+	$textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
+	$prefName = $guruNaviUtil->getPrefNameByCode($prefCode);
 	// 小エリア
-	$textSmallArea = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SMALL_AREA);
-	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
-	// レストラン
-	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
-	$textRestaurant = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RESTAURANT);
-	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
-	$textTelNo = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_TEL_NO);
-	$textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
-	$textPR = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PR);
+	$smallAreaList = $guruNaviUtil->getSmallAreaList($prefCode);
+	// 送信ボタン
+	$textSubmit = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SUBMIT);
 	// 戻るボタン
 	$textBack = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RETURN);
 	$returnUrl = $guruNaviUtil->getReturnUrl();
@@ -54,26 +51,23 @@
 <a href="<?php print($guruNaviUtil->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
 <pre>
 <?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
-<?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
+<?php print($textPrefs); ?> : <?php print($prefName); ?><br/>
 
-<?php
-	$count = 0;
-	foreach($restList as $key => $data) {
-		$count++;
-		print('No. ' . $count . '<br/>');
-		print($textRestaurant . ' : ' . $data['name'] . '<br/>');
-		print($textCategory . ' : ' . $data['category'] . '<br/>');
-		print($textTelNo . ' : ' . $data['tel'] . '<br/>');
-		print($textAddress . ' : ' . $data['address'] . '<br/>');
-		print($textPR . ' : ' . $data['pr'] . '<br/>');
-		print('
-		<a href="' . $data['url'] . '">' .
-			'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン">
-		</a>
-		');
-		print('<br/>');
-	}
-?>
+	<form action="GuruNaviDisp.php"method="get">
+		<div class="cp_ipselect cp_sl05">
+		<select name="areacode_s">
+			<?php
+			foreach ($smallAreaList as $key => $areaData) {
+				echo '<option value="', $areaData['areacode_s'], '">', $areaData['areaname_s'], '</option>';
+			}
+			?>
+		</select>
+		</div>
+		<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink">
+		<input type="hidden" name="pref_code" value="<?php print($prefCode); ?>">
+		<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
+		<input type="hidden" name="lang" value="<?php print($lang); ?>">
+	</form>
 
 	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </pre>
