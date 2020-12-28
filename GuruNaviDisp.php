@@ -15,6 +15,11 @@
 	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
 	// レストラン
 	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
+	$textRestaurant = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RESTAURANT);
+	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
+	$textTelNo = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_TEL_NO);
+	$textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
+	$textPR = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PR);
 	// 戻るボタン
 	$textBack = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RETURN);
 	$returnUrl = $guruNaviUtil->getReturnUrl();
@@ -51,11 +56,11 @@
 	foreach($restList as $key => $data) {
 		$count++;
 		print('No. ' . $count . '<br/>');
-		print('店舗名 : ' . $data['name'] . '<br/>');
-		print('カテゴリー : ' . $data['category'] . '<br/>');
-		print('電話番号 : ' . $data['tel'] . '<br/>');
-		print('住所 : ' . $data['address'] . '<br/>');
-		print('PR : ' . $data['pr'] . '<br/>');
+		print($textRestaurant . ' : ' . $data['name'] . '<br/>');
+		print($textCategory . ' : ' . $data['category'] . '<br/>');
+		print($textTelNo . ' : ' . $data['tel'] . '<br/>');
+		print($textAddress . ' : ' . $data['address'] . '<br/>');
+		print($textPR . ' : ' . $data['pr'] . '<br/>');
 		print('
 		<a href="' . $data['url'] . '">' .
 			'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン">
