@@ -11,8 +11,6 @@
 	// 小エリア
 	$textSmallArea = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SMALL_AREA);
 	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
-	// バリデーション
-	$guruNaviUtil->validate($categoryCode, $smallAreaCode);
 	// レストラン
 	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
 	// 戻るボタン

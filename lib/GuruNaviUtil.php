@@ -25,34 +25,6 @@ class GuruNaviUtil {
 		'vi' => 'Tìm kiếm nhà hàng bằng API Gurunavi',
 	];
 
-	private $validationErrorList = [
-		'ja' => [
-			1 => 'カテゴリーと都道府県を入力してください',
-			2 => 'カテゴリーを入力してください',
-			3 => '都道府県を入力してください',
-		],
-		'en' => [
-			1 => 'Please enter keyword and your pref.',
-			2 => 'Please enter keyword.',
-			3 => 'Please enter your pref.',
-		],
-		'zh_cn' => [
-			1 => '',
-			2 => '',
-			3 => '',
-		],
-		'ko' => [
-			1 => '',
-			2 => '',
-			3 => '',
-		],
-		'vi' => [
-			1 => '',
-			2 => '',
-			3 => '',
-		],
-	];
-
 	private $formTextList = [
 		'ja' => [
 			self::TEXT_CATEGORY => 'カテゴリー',
@@ -176,31 +148,6 @@ class GuruNaviUtil {
 			}
 		}
 		return false;
-	}
-
-	public function getValidationErrorText($errorNo) {
-		return $this->validationErrorList[$this->lang][$errorNo];
-	}
-
-	public function validate($keyword, $pref) {
-		$paramArray = [];
-		$paramArray['lang'] = $this->lang;
-
-		$url = 'GuruNaviForm.php';
-		if(empty($keyword) && empty($pref)) {
-			$paramArray['error'] = 1;
-		} elseif(empty($keyword)) {
-			$paramArray['error'] = 2;
-		} elseif(empty($pref)) {
-			$paramArray['error'] = 3;
-		}
-
-		if(isset($paramArray['error']) && $paramArray['error'] > 0) {
-			$paramString = http_build_query($paramArray);
-			$redirectUrl = $url . '?' . $paramString;
-			header('Location: ' . $redirectUrl);
-			exit;
-		}
 	}
 
 	public function getRestaurantList($categoryCode, $smallAreaCode) {

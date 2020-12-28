@@ -5,7 +5,6 @@
 	require_once 'lib/GuruNaviUtil.php';
 	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
 	$lang = $guruNaviUtil->lang;
-	$guruNaviUtil->validate($categoryCode, $prefCode);
 	$title = $guruNaviUtil->getTitle();
 	// カテゴリー
 	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
