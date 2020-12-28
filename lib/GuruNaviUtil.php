@@ -72,6 +72,14 @@ class GuruNaviUtil {
 		],
 	];
 
+	public $submitTextList = [
+		'ja' => '送信',
+		'en' => 'submit',
+		'zh_cn' => '发送',
+		'ko' => '전송',
+		'vi' => 'Gửi',
+	];
+
 	public function __construct($lang) {
 		$this->lang = $this->__getLanguage($lang);
 	}
@@ -82,6 +90,10 @@ class GuruNaviUtil {
 
 	public function getFormText($textType) {
 		return $this->formTextList[$this->lang][$textType];
+	}
+
+	public function getSubmitText() {
+		return $this->submitTextList[$this->lang];
 	}
 
 	public function getValidationErrorText($errorNo) {

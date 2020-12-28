@@ -7,6 +7,7 @@ $title = $guruNaviUtil->getTitle();
 $errorText = $guruNaviUtil->getValidationErrorText($_GET["error"]);
 $textKeyword = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_KEYWORD);
 $textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
+$textSubmit = $guruNaviUtil->getSubmitText();
 ?>
 
 <!doctype html>
@@ -46,7 +47,7 @@ $textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
 	<form action="GuruNaviDisp.php"method="get">
 	<span><?php print($textKeyword); ?> </span><input type="text" name="keyword/">
 	<span><?php print($textAddress); ?> </span><input type="text" name="address/">
-	<input type="submit" value="送信">
+	<input type="submit" value="<?php print($textSubmit); ?>">
 	<input type="hidden" name="lang" value="<?php print($lang); ?>">
 	</form>
 </pre>
