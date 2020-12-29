@@ -37,7 +37,7 @@ $textNext = $util->getFormText($util::TEXT_NEXT);
 <a href="GuruNaviForm.php?lang=ko">한국</a>
 <a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
 <pre>
-<form action="GuruNaviForm2.php"method="get">
+<form action="GuruNaviForm2.php" method="get">
 	<div class="cp_ipselect cp_sl05">
 	<select name="category_l_code">
 		<?php

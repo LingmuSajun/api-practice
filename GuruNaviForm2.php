@@ -47,10 +47,12 @@ $returnUrl = $util->getReturnUrl();
 <a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
 <a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
 <pre>
-<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
-<?php print($textPrefs); ?> : <?php print($prefName); ?><br/>
+	<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
+	<?php print($textPrefs); ?> : <?php print($prefName); ?><br/>
+</pre>
 
-	<form action="GuruNaviDisp.php"method="get">
+<pre>
+	<form action="GuruNaviDisp.php" method="get">
 		<div class="cp_ipselect cp_sl05">
 		<select name="areacode_s">
 			<?php

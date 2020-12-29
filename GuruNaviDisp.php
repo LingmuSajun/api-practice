@@ -61,8 +61,8 @@ $returnUrl = $util->getReturnUrl();
 	<tbody>
 	<?php foreach($restList as $key => $data): ?>
 		<tr>
-			<th><?php print($textRestaurant); ?></th>
-			<td><?php print($data['name']); ?></td>
+			<th class="restaurant_name"><?php print($textRestaurant); ?></th>
+			<td class="restaurant_name"><?php print($data['name']); ?></td>
 		</tr>
 		<tr>
 			<th><?php print($textBusinessHour); ?></th>
@@ -87,7 +87,7 @@ $returnUrl = $util->getReturnUrl();
 		<tr>
 			<th><?php print('Image'); ?></th>
 			<td><?php print('<a href="' . $data['url'] . '">' .
-				'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン"></a>'); ?>
+				'<img src="' .$data['image_url_1'] . '" border="0" alt="ぐるなびレストラン"></a>'); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
