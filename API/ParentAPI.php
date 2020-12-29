@@ -5,6 +5,9 @@ class ParentAPI {
 		require_once 'lib/GuruNaviUtil.php';
 		$this->keyId = GuruNaviUtil::API_KEY_ID;
 		$this->lang = $lang;
+		if($this->lang === 'vi') {
+			$this->tmpConvertToEnglish();
+		}
 	}
 
 	public function getResponse() {
@@ -31,6 +34,10 @@ class ParentAPI {
 
 		$resArray = json_decode($res, true);
 		return $resArray;
+	}
+
+	private function tmpConvertToEnglish() {
+		$this->lang = 'en';
 	}
 }
 ?>
