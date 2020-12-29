@@ -9,11 +9,12 @@ class GuruNaviUtil {
 	const TEXT_TEL_NO = 5;
 	const TEXT_ADDRESS = 6;
 	const TEXT_PR = 7;
-	const TEXT_PREFS = 8;
-	const TEXT_SMALL_AREA = 9;
-	const TEXT_NEXT = 10;
-	const TEXT_SUBMIT = 11;
-	const TEXT_RETURN = 12;
+	const TEXT_IMAGE = 8;
+	const TEXT_PREFS = 9;
+	const TEXT_SMALL_AREA = 10;
+	const TEXT_NEXT = 11;
+	const TEXT_SUBMIT = 12;
+	const TEXT_RETURN = 13;
 
 	// アクセスキーの利用期限 : 2021/03/26
 	const API_KEY_ID = '';
@@ -43,6 +44,7 @@ class GuruNaviUtil {
 			self::TEXT_TEL_NO => '電話番号',
 			self::TEXT_ADDRESS => '住所',
 			self::TEXT_PR => 'PR',
+			self::TEXT_IMAGE => '画像',
 			self::TEXT_PREFS => '都道府県',
 			self::TEXT_SMALL_AREA => '地名',
 			self::TEXT_NEXT => '次へ',
@@ -57,6 +59,7 @@ class GuruNaviUtil {
 			self::TEXT_TEL_NO => 'Tel',
 			self::TEXT_ADDRESS => 'Address',
 			self::TEXT_PR => 'PR',
+			self::TEXT_IMAGE => 'Image',
 			self::TEXT_PREFS => 'Prefectures',
 			self::TEXT_SMALL_AREA => 'Area',
 			self::TEXT_NEXT => 'Next',
@@ -71,6 +74,7 @@ class GuruNaviUtil {
 			self::TEXT_TEL_NO => '电话号码',
 			self::TEXT_ADDRESS => '街道地址',
 			self::TEXT_PR => '公关',
+			self::TEXT_IMAGE => '图片',
 			self::TEXT_PREFS => '地区',
 			self::TEXT_SMALL_AREA => '区',
 			self::TEXT_NEXT => '下一个',
@@ -85,6 +89,7 @@ class GuruNaviUtil {
 			self::TEXT_TEL_NO => '전화 번호',
 			self::TEXT_ADDRESS => '주소',
 			self::TEXT_PR => 'PR',
+			self::TEXT_IMAGE => '이미지',
 			self::TEXT_PREFS => '도도부 현',
 			self::TEXT_SMALL_AREA => '영역',
 			self::TEXT_NEXT => '다음에',
@@ -99,6 +104,7 @@ class GuruNaviUtil {
 			self::TEXT_TEL_NO => 'số điện thoại',
 			self::TEXT_ADDRESS => 'Địa chỉ đường phố',
 			self::TEXT_PR => 'PR',
+			self::TEXT_IMAGE => 'hình ảnh',
 			self::TEXT_PREFS => 'Các tỉnh',
 			self::TEXT_SMALL_AREA => 'khu vực',
 			self::TEXT_NEXT => 'kế tiếp',
