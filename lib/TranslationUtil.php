@@ -97,6 +97,9 @@ class TranslationUtil extends GuruNaviUtil {
 	];
 
 	public function getTranslatedText($text) {
+		if(strval($text) === '') {
+			return false;
+		}
 		require_once 'API/GoogleTranslateAPI.php';
 		$gtAPIObj = new GoogleTranslateAPI($this->lang);
 		$gtAPIObj->setRequestParams($text, $this->lang);

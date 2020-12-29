@@ -1,6 +1,10 @@
 <?php
 class ParentAPI {
 
+	public $keyId = false;
+	public $lang = false;
+	public $tmpConvertedFlg = false;
+
 	public function __construct($lang) {
 		require_once 'lib/GuruNaviUtil.php';
 		$this->keyId = GuruNaviUtil::API_KEY_ID;
@@ -45,6 +49,7 @@ class ParentAPI {
 
 	private function tmpConvertToEnglish() {
 		$this->lang = 'en';
+		$this->tmpConvertedFlg = true;
 	}
 }
 ?>
