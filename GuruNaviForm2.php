@@ -1,25 +1,25 @@
 <?php
-	$categoryCode = $_GET["category_l_code"];
-	$prefCode = $_GET["pref_code"];
+$categoryCode = $_GET["category_l_code"];
+$prefCode = $_GET["pref_code"];
 
-	require_once 'lib/GuruNaviUtil.php';
-	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
-	$lang = $guruNaviUtil->lang;
-	// タイトル
-	$title = $guruNaviUtil->getTitle();
-	// カテゴリー
-	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
-	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
-	// 都道府県
-	$textPrefs = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PREFS);
-	$prefName = $guruNaviUtil->getPrefNameByCode($prefCode);
-	// 小エリア
-	$smallAreaList = $guruNaviUtil->getSmallAreaList($prefCode);
-	// 送信ボタン
-	$textSubmit = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SUBMIT);
-	// 戻るボタン
-	$textBack = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RETURN);
-	$returnUrl = $guruNaviUtil->getReturnUrl();
+require_once 'lib/TranslationUtil.php';
+$util = new TranslationUtil($_GET["lang"]);
+$lang = $util->lang;
+// タイトル
+$title = $util->getTitle();
+// カテゴリー
+$textCategory = $util->getFormText($util::TEXT_CATEGORY);
+$categoryName = $util->getCategoryNameByCode($categoryCode);
+// 都道府県
+$textPrefs = $util->getFormText($util::TEXT_PREFS);
+$prefName = $util->getPrefNameByCode($prefCode);
+// 小エリア
+$smallAreaList = $util->getSmallAreaList($prefCode);
+// 送信ボタン
+$textSubmit = $util->getFormText($util::TEXT_SUBMIT);
+// 戻るボタン
+$textBack = $util->getFormText($util::TEXT_RETURN);
+$returnUrl = $util->getReturnUrl();
 ?>
 
 <!doctype html>
@@ -44,11 +44,11 @@
 <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('ja')); ?>">日本語</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('en')); ?>">English</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('zh_cn')); ?>">中文</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('ko')); ?>">한국</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
+<a href="<?php print($util->getLanguageUrl('ja')); ?>">日本語</a>
+<a href="<?php print($util->getLanguageUrl('en')); ?>">English</a>
+<a href="<?php print($util->getLanguageUrl('zh_cn')); ?>">中文</a>
+<a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
+<a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
 <pre>
 <?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
 <?php print($textPrefs); ?> : <?php print($prefName); ?><br/>

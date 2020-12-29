@@ -1,28 +1,30 @@
 <?php
-	$categoryCode = $_GET["category_l_code"];
-	$prefCode = $_GET["pref_code"];
-	$smallAreaCode = $_GET["areacode_s"];
+$categoryCode = $_GET["category_l_code"];
+$prefCode = $_GET["pref_code"];
+$smallAreaCode = $_GET["areacode_s"];
 
-	require_once 'lib/GuruNaviUtil.php';
-	$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
-	// タイトル
-	$title = $guruNaviUtil->getTitle();
-	// カテゴリー
-	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
-	$categoryName = $guruNaviUtil->getCategoryNameByCode($categoryCode);
-	// 小エリア
-	$textSmallArea = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_SMALL_AREA);
-	$smallAreaName = $guruNaviUtil->getSmallAreaNameByCode($prefCode, $smallAreaCode);
-	// レストラン
-	$restList = $guruNaviUtil->getRestaurantList($categoryCode, $smallAreaCode);
-	$textRestaurant = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RESTAURANT);
-	$textCategory = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_CATEGORY);
-	$textTelNo = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_TEL_NO);
-	$textAddress = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_ADDRESS);
-	$textPR = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_PR);
-	// 戻るボタン
-	$textBack = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_RETURN);
-	$returnUrl = $guruNaviUtil->getReturnUrl();
+require_once 'lib/TranslationUtil.php';
+$util = new TranslationUtil($_GET["lang"]);
+// タイトル
+$title = $util->getTitle();
+// カテゴリー
+$textCategory = $util->getFormText($util::TEXT_CATEGORY);
+$categoryName = $util->getCategoryNameByCode($categoryCode);
+// 小エリア
+$textSmallArea = $util->getFormText($util::TEXT_SMALL_AREA);
+$smallAreaName = $util->getSmallAreaNameByCode($prefCode, $smallAreaCode);
+// レストラン
+$restList = $util->getRestaurantList($categoryCode, $smallAreaCode);
+$textRestaurant = $util->getFormText($util::TEXT_RESTAURANT);
+$textBusinessHour = $util->getFormText($util::TEXT_BUSINESS_HOUR);
+$textHoliday = $util->getFormText($util::TEXT_HOLIDAY);
+$textCategory = $util->getFormText($util::TEXT_CATEGORY);
+$textTelNo = $util->getFormText($util::TEXT_TEL_NO);
+$textAddress = $util->getFormText($util::TEXT_ADDRESS);
+$textPR = $util->getFormText($util::TEXT_PR);
+// 戻るボタン
+$textBack = $util->getFormText($util::TEXT_RETURN);
+$returnUrl = $util->getReturnUrl();
 ?>
 
 <!doctype html>
@@ -47,11 +49,11 @@
 <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 </a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('ja')); ?>">日本語</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('en')); ?>">English</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('zh_cn')); ?>">中文</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('ko')); ?>">한국</a>
-<a href="<?php print($guruNaviUtil->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
+<a href="<?php print($util->getLanguageUrl('ja')); ?>">日本語</a>
+<a href="<?php print($util->getLanguageUrl('en')); ?>">English</a>
+<a href="<?php print($util->getLanguageUrl('zh_cn')); ?>">中文</a>
+<a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
+<a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
 <pre>
 <?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
 <?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
@@ -62,7 +64,8 @@
 		$count++;
 		print('No. ' . $count . '<br/>');
 		print($textRestaurant . ' : ' . $data['name'] . '<br/>');
-		print($textCategory . ' : ' . $data['category'] . '<br/>');
+		print($textBusinessHour . ' : ' . $data['business_hour'] . '<br/>');
+		print($textHoliday . ' : ' . $data['holiday'] . '<br/>');
 		print($textTelNo . ' : ' . $data['tel'] . '<br/>');
 		print($textAddress . ' : ' . $data['address'] . '<br/>');
 		print($textPR . ' : ' . $data['pr'] . '<br/>');

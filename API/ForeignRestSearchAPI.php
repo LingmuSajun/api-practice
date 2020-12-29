@@ -37,7 +37,8 @@ class ForeignRestSearchAPI extends ParentAPI {
 		$res = [];
 		foreach($list as $key => $data) {
 			$res[$key]['name'] = $data['name']['name'];
-			$res[$key]['category'] = $data['categories']['category_name_l'][0];
+			$res[$key]['business_hour'] = $data['business_hour'];
+			$res[$key]['holiday'] = $data['holiday'];
 			$res[$key]['url'] = $data['url'];
 			$res[$key]['image_url_1'] = $data['image_url']['thumbnail'];
 			$res[$key]['tel'] = $data['contacts']['tel'];
