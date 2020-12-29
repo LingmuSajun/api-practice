@@ -114,18 +114,17 @@ a.btn--pink:hover {
   background: #eba3d9;
 }
 /* テーブル */
-.table6{
+.table6 {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0px;
   border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
 }
-.table6 th{
+.table6 th {
   width:25%;
   padding:10px;
   text-align: left;
-  vertical-align: top;
   color: #444;
   background-color: #e3f2ff;
   border-left: 3px double #999;
@@ -133,7 +132,7 @@ a.btn--pink:hover {
   border-right: 1px solid #fff;
   border-bottom: 1px solid #ccc;
 }
-.table6 td{
+.table6 td {
   width:75%;
   padding:10px;
   background-color: #fafafa;

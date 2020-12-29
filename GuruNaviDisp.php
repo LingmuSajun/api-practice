@@ -22,6 +22,7 @@ $textCategory = $util->getFormText($util::TEXT_CATEGORY);
 $textTelNo = $util->getFormText($util::TEXT_TEL_NO);
 $textAddress = $util->getFormText($util::TEXT_ADDRESS);
 $textPR = $util->getFormText($util::TEXT_PR);
+$textImage = $util->getFormText($util::TEXT_IMAGE);
 // 戻るボタン
 $textBack = $util->getFormText($util::TEXT_RETURN);
 $returnUrl = $util->getReturnUrl();
@@ -85,7 +86,7 @@ $returnUrl = $util->getReturnUrl();
 			<td><?php print($data['pr']); ?></td>
 		</tr>
 		<tr>
-			<th><?php print('Image'); ?></th>
+			<th><?php print($textImage); ?></th>
 			<td><?php print('<a href="' . $data['url'] . '">' .
 				'<img src="' .$data['image_url_1'] . '" border="0" alt="ぐるなびレストラン"></a>'); ?>
 			</td>
