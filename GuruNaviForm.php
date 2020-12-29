@@ -25,9 +25,6 @@ $textNext = $util->getFormText($util::TEXT_NEXT);
 <title><?php print($title); ?></title>
 </head>
 <body>
-<header>
-<h1 class="font-weight-normal">PHP</h1>
-</header>
 
 <main>
 <h2><?php print($title); ?></h2>

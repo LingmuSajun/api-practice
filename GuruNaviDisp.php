@@ -40,9 +40,6 @@ $returnUrl = $util->getReturnUrl();
 <title><?php print($title); ?></title>
 </head>
 <body>
-<header>
-<h1 class="font-weight-normal">PHP</h1>
-</header>
 
 <main>
 <h2><?php print($title); ?></h2>
@@ -54,32 +51,51 @@ $returnUrl = $util->getReturnUrl();
 <a href="<?php print($util->getLanguageUrl('zh_cn')); ?>">中文</a>
 <a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
 <a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
+
 <pre>
-<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
-<?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
-
-<?php
-	$count = 0;
-	foreach($restList as $key => $data) {
-		$count++;
-		print('No. ' . $count . '<br/>');
-		print($textRestaurant . ' : ' . $data['name'] . '<br/>');
-		print($textBusinessHour . ' : ' . $data['business_hour'] . '<br/>');
-		print($textHoliday . ' : ' . $data['holiday'] . '<br/>');
-		print($textTelNo . ' : ' . $data['tel'] . '<br/>');
-		print($textAddress . ' : ' . $data['address'] . '<br/>');
-		print($textPR . ' : ' . $data['pr'] . '<br/>');
-		print('
-		<a href="' . $data['url'] . '">' .
-			'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン">
-		</a>
-		');
-		print('<br/>');
-	}
-?>
-
-	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
+	<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
+	<?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
 </pre>
+
+<table class="table6">
+	<tbody>
+	<?php foreach($restList as $key => $data): ?>
+		<tr>
+			<th><?php print($textRestaurant); ?></th>
+			<td><?php print($data['name']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print($textBusinessHour); ?></th>
+			<td><?php print($data['business_hour']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print($textHoliday); ?></th>
+			<td><?php print($data['holiday']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print($textTelNo); ?></th>
+			<td><?php print($data['tel']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print($textAddress); ?></th>
+			<td><?php print($data['address']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print($textPR); ?></th>
+			<td><?php print($data['pr']); ?></td>
+		</tr>
+		<tr>
+			<th><?php print('Image'); ?></th>
+			<td><?php print('<a href="' . $data['url'] . '">' .
+				'<img src="' .$data['image_url_1'] . '"width="300" height="100" border="0" alt="ぐるなびレストラン"></a>'); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+<br/>
+
+<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </main>
 </body>
 </html>
