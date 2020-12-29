@@ -3,15 +3,17 @@ class GuruNaviUtil {
 
 	// テキスト
 	const TEXT_RESTAURANT = 1;
-	const TEXT_CATEGORY = 2;
-	const TEXT_TEL_NO = 3;
-	const TEXT_ADDRESS = 4;
-	const TEXT_PR = 5;
-	const TEXT_PREFS = 6;
-	const TEXT_SMALL_AREA = 7;
-	const TEXT_NEXT = 8;
-	const TEXT_SUBMIT = 9;
-	const TEXT_RETURN = 10;
+	const TEXT_BUSINESS_HOUR = 2;
+	const TEXT_HOLIDAY = 3;
+	const TEXT_CATEGORY = 4;
+	const TEXT_TEL_NO = 5;
+	const TEXT_ADDRESS = 6;
+	const TEXT_PR = 7;
+	const TEXT_PREFS = 8;
+	const TEXT_SMALL_AREA = 9;
+	const TEXT_NEXT = 10;
+	const TEXT_SUBMIT = 11;
+	const TEXT_RETURN = 12;
 
 	// アクセスキーの利用期限 : 2021/03/26
 	const API_KEY_ID = '';
@@ -35,6 +37,8 @@ class GuruNaviUtil {
 	private $formTextList = [
 		'ja' => [
 			self::TEXT_RESTAURANT => '店舗名',
+			self::TEXT_BUSINESS_HOUR => '営業時間',
+			self::TEXT_HOLIDAY => '休業日',
 			self::TEXT_CATEGORY => 'カテゴリー',
 			self::TEXT_TEL_NO => '電話番号',
 			self::TEXT_ADDRESS => '住所',
@@ -47,6 +51,8 @@ class GuruNaviUtil {
 		],
 		'en' => [
 			self::TEXT_RESTAURANT => 'Store Name',
+			self::TEXT_BUSINESS_HOUR => 'Business Hour',
+			self::TEXT_HOLIDAY => 'Holiday',
 			self::TEXT_CATEGORY => 'Category',
 			self::TEXT_TEL_NO => 'Tel',
 			self::TEXT_ADDRESS => 'Address',
@@ -59,6 +65,8 @@ class GuruNaviUtil {
 		],
 		'zh_cn' => [
 			self::TEXT_RESTAURANT => '店铺名称',
+			self::TEXT_BUSINESS_HOUR => '营业时间',
+			self::TEXT_HOLIDAY => '假日',
 			self::TEXT_CATEGORY => '类别',
 			self::TEXT_TEL_NO => '电话号码',
 			self::TEXT_ADDRESS => '街道地址',
@@ -71,6 +79,8 @@ class GuruNaviUtil {
 		],
 		'ko' => [
 			self::TEXT_RESTAURANT => '가게 이름',
+			self::TEXT_BUSINESS_HOUR => '영업 시간',
+			self::TEXT_HOLIDAY => '휴업일',
 			self::TEXT_CATEGORY => '범주',
 			self::TEXT_TEL_NO => '전화 번호',
 			self::TEXT_ADDRESS => '주소',
@@ -83,6 +93,8 @@ class GuruNaviUtil {
 		],
 		'vi' => [
 			self::TEXT_RESTAURANT => 'Tên cửa hàng',
+			self::TEXT_BUSINESS_HOUR => 'giờ kinh doanh',
+			self::TEXT_HOLIDAY => 'Ngày lễ',
 			self::TEXT_CATEGORY => 'thể loại',
 			self::TEXT_TEL_NO => 'số điện thoại',
 			self::TEXT_ADDRESS => 'Địa chỉ đường phố',

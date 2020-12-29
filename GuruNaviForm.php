@@ -1,15 +1,15 @@
 <?php
-require_once 'lib/GuruNaviUtil.php';
-$guruNaviUtil = new GuruNaviUtil($_GET["lang"]);
-$lang = $guruNaviUtil->lang;
+require_once 'lib/TranslationUtil.php';
+$util = new TranslationUtil($_GET["lang"]);
+$lang = $util->lang;
 // タイトル
-$title = $guruNaviUtil->getTitle();
+$title = $util->getTitle();
 // カテゴリー
-$categoryList = $guruNaviUtil->getCategoryList();
+$categoryList = $util->getCategoryList();
 // 都道府県
-$prefList = $guruNaviUtil->getPrefList();
+$prefList = $util->getPrefList();
 // 次へボタン
-$textNext = $guruNaviUtil->getFormText(GuruNaviUtil::TEXT_NEXT);
+$textNext = $util->getFormText($util::TEXT_NEXT);
 ?>
 
 <!doctype html>

@@ -37,12 +37,13 @@ class ForeignRestSearchAPI extends ParentAPI {
 		$res = [];
 		foreach($list as $key => $data) {
 			$res[$key]['name'] = $data['name']['name'];
-			$res[$key]['category'] = $data['categories']['category_name_l'][0];
+			$res[$key]['business_hour'] = $data['business_hour'];
+			$res[$key]['holiday'] = $data['holiday'];
 			$res[$key]['url'] = $data['url'];
 			$res[$key]['image_url_1'] = $data['image_url']['thumbnail'];
 			$res[$key]['tel'] = $data['contacts']['tel'];
 			$res[$key]['address'] = $data['contacts']['address'];
-			$res[$key]['pr'] = $data['sales_points']['pr_short'];
+			$res[$key]['pr'] = $this->getTranslatedText($data['sales_points']['pr_short']);
 
 			if($count === 10) {
 				return $res;
@@ -50,6 +51,16 @@ class ForeignRestSearchAPI extends ParentAPI {
 			$count++;
 		}
 		return $res;
+	}
+
+	private function getTranslatedText($text) {
+		if($this->tmpConvertedFlg === false) {
+			return $text;
+		}
+		require_once 'lib/TranslationUtil.php';
+		$util = new TranslationUtil('vi');
+		$text = $util->getTranslatedText($text);
+		return $text;
 	}
 }
 ?>
