@@ -15,6 +15,18 @@ header h1 {
 header h1 span {
   display: block;
 }
+header .language_url {
+  display: inline-block;
+  padding: 10px 10px 0;
+}
+@media screen and (max-width: 767px) {
+  header .language_url {
+    display: block;
+  }
+  main h2 {
+    padding: 0 0 10px;
+  }
+}
 main {
   margin: auto;
   padding: 10px;
@@ -25,9 +37,6 @@ main {
 main h2 {
   font-size: 120%;
   text-shadow: 1px 1px 3px #999;
-}
-main h2 img {
-  height: 1em;
 }
 pre {
   min-height: 100px;
