@@ -43,15 +43,17 @@ $returnUrl = $util->getReturnUrl();
 <body>
 
 <main>
-<h2><?php print($title); ?></h2>
-<a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
-	<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
-</a>
-<a href="<?php print($util->getLanguageUrl('ja')); ?>">日本語</a>
-<a href="<?php print($util->getLanguageUrl('en')); ?>">English</a>
-<a href="<?php print($util->getLanguageUrl('zh_cn')); ?>">中文</a>
-<a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
-<a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
+<header>
+	<h2><?php print($title); ?></h2>
+	<a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
+		<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
+	</a>
+	<a href="<?php print($util->getLanguageUrl('ja')); ?>">日本語</a>
+	<a href="<?php print($util->getLanguageUrl('en')); ?>">English</a>
+	<a href="<?php print($util->getLanguageUrl('zh_cn')); ?>">中文</a>
+	<a href="<?php print($util->getLanguageUrl('ko')); ?>">한국</a>
+	<a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
+</header>
 
 <pre>
 	<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
