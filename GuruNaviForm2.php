@@ -56,23 +56,23 @@ $returnUrl = $util->getReturnUrl();
 </pre>
 
 <pre>
-	<form action="GuruNaviDisp.php" method="get">
-		<div class="cp_ipselect cp_sl05">
-		<select name="areacode_s">
-			<?php
-			foreach ($smallAreaList as $key => $areaData) {
-				echo '<option value="', $areaData['areacode_s'], '">', $areaData['areaname_s'], '</option>';
-			}
-			?>
-		</select>
-		</div>
-		<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink sb">
-		<input type="hidden" name="pref_code" value="<?php print($prefCode); ?>">
-		<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
-		<input type="hidden" name="lang" value="<?php print($lang); ?>">
-	</form>
+<form action="GuruNaviDisp.php" method="get">
+	<div class="cp_ipselect cp_sl05">
+	<select name="areacode_s">
+		<?php
+		foreach ($smallAreaList as $key => $areaData) {
+			echo '<option value="', $areaData['areacode_s'], '">', $areaData['areaname_s'], '</option>';
+		}
+		?>
+	</select>
+	</div>
+	<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink sb">
+	<input type="hidden" name="pref_code" value="<?php print($prefCode); ?>">
+	<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
+	<input type="hidden" name="lang" value="<?php print($lang); ?>">
+</form>
 
-	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
+<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </pre>
 </main>
 </body>
