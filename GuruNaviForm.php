@@ -32,11 +32,13 @@ $textNext = $util->getFormText($util::TEXT_NEXT);
 	<a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
 		<img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
 	</a>
-	<a href="GuruNaviForm.php?lang=ja">日本語</a>
-	<a href="GuruNaviForm.php?lang=en">English</a>
-	<a href="GuruNaviForm.php?lang=zh_cn">中文</a>
-	<a href="GuruNaviForm.php?lang=ko">한국</a>
-	<a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
+	<div class="language_url">
+		<a href="GuruNaviForm.php?lang=ja">日本語</a>
+		<a href="GuruNaviForm.php?lang=en">English</a>
+		<a href="GuruNaviForm.php?lang=zh_cn">中文</a>
+		<a href="GuruNaviForm.php?lang=ko">한국</a>
+		<a href="GuruNaviForm.php?lang=vi">Tiếng Việt</a>
+	</div>
 </header>
 <pre>
 <form action="GuruNaviForm2.php" method="get">
