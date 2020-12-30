@@ -46,7 +46,7 @@ pre {
   margin-right: auto;
   background-color: #F5E3DC;
   box-shadow: 1px 1px 5px #eee;
-  max-width: 540px;
+  max-width: 555px;
 }
 hr {
   border-color: #7dc9f5;
@@ -117,6 +117,10 @@ article {
 a.btn--pink {
   color: #fff;
   background-color: #F58962;
+}
+.sb {
+  display: block;
+  margin-left: 70%;
 }
 .btn--pink:hover,
 a.btn--pink:hover {

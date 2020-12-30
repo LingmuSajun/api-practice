@@ -66,7 +66,7 @@ $returnUrl = $util->getReturnUrl();
 			?>
 		</select>
 		</div>
-		<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink">
+		<input type="submit" value="<?php print($textSubmit); ?>" class="btn btn--pink sb">
 		<input type="hidden" name="pref_code" value="<?php print($prefCode); ?>">
 		<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
 		<input type="hidden" name="lang" value="<?php print($lang); ?>">
