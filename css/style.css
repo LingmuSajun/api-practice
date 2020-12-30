@@ -34,7 +34,7 @@ main h2 img {
 pre {
   min-height: 100px;
   padding: 10px;
-  background-color: #e3f2ff;
+  background-color: #F5E3DC;
   box-shadow: 1px 1px 5px #eee;
   max-width: 540px;
 }
@@ -82,7 +82,7 @@ article {
 	position: relative;
 	border-radius: 2px;
   border-radius: 50px;
-	background: #7dc9f5;
+  background: #F58962;
 }
 .cp_ipselect.cp_sl05::before {
   position: absolute;
@@ -106,12 +106,12 @@ article {
 .btn--pink,
 a.btn--pink {
   color: #fff;
-  background-color: #e45cc2;
+  background-color: #F58962;
 }
 .btn--pink:hover,
 a.btn--pink:hover {
   color: #fff;
-  background: #eba3d9;
+  background: #ecaaaa;
 }
 /* テーブル */
 .table6 {
@@ -126,10 +126,10 @@ a.btn--pink:hover {
   padding:10px;
   text-align: left;
   color: #444;
-  background-color: #e3f2ff;
+  background-color: #F5E3DC;
   border-left: 3px double #999;
   border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
+  border-right: 1px solid #999;
   border-bottom: 1px solid #ccc;
 }
 .table6 td {
@@ -142,5 +142,5 @@ a.btn--pink:hover {
 }
 
 .table6 .restaurant_name{
-  background-color: #7dc9f5;
+  background-color: #F58962;
 }
