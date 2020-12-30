@@ -21,8 +21,8 @@ header h1 span {
   display: block;
 }
 main {
-  margin-left: auto;
-  padding: 10px 100px;
+  margin: auto;
+  padding: 10px;
 }
 main h2 {
   font-size: 120%;
@@ -36,7 +36,7 @@ pre {
   padding: 10px;
   background-color: #e3f2ff;
   box-shadow: 1px 1px 5px #eee;
-  width: 540px;
+  max-width: 540px;
 }
 hr {
   border-color: #7dc9f5;
