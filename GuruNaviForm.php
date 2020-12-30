@@ -60,7 +60,7 @@ $textNext = $util->getFormText($util::TEXT_NEXT);
 		?>
 	</select>
 	</div>
-	<input type="submit" value="<?php print($textNext); ?>" class="btn btn--pink">
+	<input type="submit" value="<?php print($textNext); ?>" class="btn btn--pink sb">
 	<input type="hidden" name="lang" value="<?php print($lang); ?>">
 </form>
 </pre>
