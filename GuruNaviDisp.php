@@ -98,9 +98,8 @@ $returnUrl = $util->getReturnUrl();
 	<?php endforeach; ?>
 	</tbody>
 </table>
-<br/>
 
-<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
+<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink back">
 </main>
 </body>
 </html>
