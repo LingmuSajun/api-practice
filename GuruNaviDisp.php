@@ -24,7 +24,7 @@ $textAddress = $util->getFormText($util::TEXT_ADDRESS);
 $textPR = $util->getFormText($util::TEXT_PR);
 $textImage = $util->getFormText($util::TEXT_IMAGE);
 // 戻るボタン
-$textBack = $util->getFormText($util::TEXT_RETURN);
+$textReturn = $util->getFormText($util::TEXT_RETURN);
 $returnUrl = $util->getReturnUrl();
 ?>
 
@@ -57,10 +57,10 @@ $returnUrl = $util->getReturnUrl();
 	</div>
 </header>
 
-<pre>
+<div class="search_condition">
 	<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
 	<?php print($textSmallArea); ?> : <?php print($smallAreaName); ?><br/>
-</pre>
+</div>
 
 <table class="table6">
 	<tbody>
@@ -99,7 +99,9 @@ $returnUrl = $util->getReturnUrl();
 	</tbody>
 </table>
 
-<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink back">
+<div class="return_block">
+	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textReturn); ?>" class="btn btn--pink return">
+</div>
 </main>
 </body>
 </html>
