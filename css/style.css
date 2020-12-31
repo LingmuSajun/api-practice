@@ -5,8 +5,10 @@ pre {
   font-family: "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, sans-serif;
 }
 header {
-  text-align: center;
-  padding: 10px;
+  max-width: 555px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0px;
 }
 header h1 {
   font-size: 100%;
@@ -17,19 +19,22 @@ header h1 span {
 }
 header .language_url {
   display: inline-block;
-  padding: 10px 10px 0;
 }
 @media screen and (max-width: 767px) {
+  header {
+    text-align: center;
+    padding: 0px 0px 10px;
+  }
   header .language_url {
     display: block;
+    padding: 10px 10px 0;
   }
   main h2 {
-    padding: 0 0 10px;
+    padding: 10px 0 0;
   }
 }
 main {
   margin: auto;
-  padding: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -38,24 +43,44 @@ main h2 {
   font-size: 120%;
   text-shadow: 1px 1px 3px #999;
 }
-pre {
-  min-height: 100px;
-  padding: 10px;
-  display: block;
+.search_condition {
+  max-width: 555px;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   background-color: #F5E3DC;
-  box-shadow: 1px 1px 5px #eee;
+}
+pre {
   max-width: 555px;
+  height: 385px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  background-color: #F5E3DC;
+}
+@media screen and (max-width: 767px) {
+  .search_condition {
+    width: 95%;
+  }
+  pre {
+    width: 95%;
+  }
 }
 hr {
   border-color: #7dc9f5;
 }
-.content {
-  margin-top: 30px;
-}
 form {
-  margin-top: 50px;
+  margin: auto;
+  position: relative;
+  background-color: #F5E3DC;
+}
+.select_first {
+  top: 21px;
+}
+.select_second {
+  top: 80px;
 }
 time {
   color: #999;
@@ -68,7 +93,7 @@ article {
 .cp_ipselect {
 	overflow: hidden;
 	width: 90%;
-	margin: 2em auto;
+	margin: auto;
 	text-align: center;
 }
 .cp_ipselect select {
@@ -118,13 +143,20 @@ a.btn--pink {
   color: #fff;
   background-color: #F58962;
 }
-.back {
-  margin-top: 10px;
-  margin-left: 10%;
+.return {
+  margin-left: auto;
+  margin-right: auto;
 }
-@media screen and (max-width: 767px) {
-  .back {
-    margin-left: 0px;
+.return_block {
+  padding: 10px 0 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 555px;
+}
+@media screen and (max-width: 555px) {
+  .return_block {
+    width: 95%;
   }
 }
 .sb {
@@ -138,6 +170,7 @@ a.btn--pink:hover {
 }
 /* テーブル */
 .table6 {
+  max-width: 555px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -148,7 +181,7 @@ a.btn--pink:hover {
 }
 @media screen and (max-width: 767px) {
   .table6 {
-    width: 100%;
+    width: 95%;
   }
 }
 .table6 th {

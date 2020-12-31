@@ -41,7 +41,7 @@ $textNext = $util->getFormText($util::TEXT_NEXT);
 	</div>
 </header>
 <pre>
-<form action="GuruNaviForm2.php" method="get">
+<form action="GuruNaviForm2.php" method="get" class="select_first">
 	<div class="cp_ipselect cp_sl05">
 	<select name="category_l_code">
 		<?php

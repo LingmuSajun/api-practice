@@ -18,7 +18,7 @@ $smallAreaList = $util->getSmallAreaList($prefCode);
 // 送信ボタン
 $textSubmit = $util->getFormText($util::TEXT_SUBMIT);
 // 戻るボタン
-$textBack = $util->getFormText($util::TEXT_RETURN);
+$textReturn = $util->getFormText($util::TEXT_RETURN);
 $returnUrl = $util->getReturnUrl();
 ?>
 
@@ -50,13 +50,13 @@ $returnUrl = $util->getReturnUrl();
 		<a href="<?php print($util->getLanguageUrl('vi')); ?>">Tiếng Việt</a>
 	</div>
 </header>
-<pre>
+<div class="search_condition">
 	<?php print($textCategory); ?> : <?php print($categoryName); ?><br/>
 	<?php print($textPrefs); ?> : <?php print($prefName); ?><br/>
-</pre>
+</div>
 
 <pre>
-<form action="GuruNaviDisp.php" method="get">
+<form action="GuruNaviDisp.php" method="get" class="select_second">
 	<div class="cp_ipselect cp_sl05">
 	<select name="areacode_s">
 		<?php
@@ -71,9 +71,10 @@ $returnUrl = $util->getReturnUrl();
 	<input type="hidden" name="category_l_code" value="<?php print($categoryCode); ?>">
 	<input type="hidden" name="lang" value="<?php print($lang); ?>">
 </form>
-
-<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textBack); ?>" class="btn btn--pink">
 </pre>
+<div class="return_block">
+	<input type="button" onclick="location.href='<?php print($returnUrl); ?>'" value="<?php print($textReturn); ?>" class="btn btn--pink return">
+</div>
 </main>
 </body>
 </html>
