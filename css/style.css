@@ -122,7 +122,6 @@ article {
 }
 .cp_ipselect.cp_sl05::before {
   position: absolute;
-  /* position: relative; */
 	top: 2.5em;
 	right: 0.8em;
 	width: 0;
@@ -204,7 +203,6 @@ a.btn--pink:hover {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #ccc;
 }
-
 .table6 .restaurant_name{
   background-color: #F58962;
 }
