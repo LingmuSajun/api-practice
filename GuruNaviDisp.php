@@ -64,38 +64,44 @@ $returnUrl = $util->getReturnUrl();
 
 <table class="table6">
 	<tbody>
-	<?php foreach($restList as $key => $data): ?>
-		<tr>
-			<th class="restaurant_name"><?php print($textRestaurant); ?></th>
-			<td class="restaurant_name"><?php print($data['name']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textBusinessHour); ?></th>
-			<td><?php print($data['business_hour']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textHoliday); ?></th>
-			<td><?php print($data['holiday']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textTelNo); ?></th>
-			<td><?php print($data['tel']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textAddress); ?></th>
-			<td><?php print($data['address']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textPR); ?></th>
-			<td><?php print($data['pr']); ?></td>
-		</tr>
-		<tr>
-			<th><?php print($textImage); ?></th>
-			<td><?php print('<a href="' . $data['url'] . '">' .
-				'<img src="' .$data['image_url_1'] . '" border="0" alt="ぐるなびレストラン"></a>'); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
+	<?php if(is_array($restList)): ?>
+		<?php foreach($restList as $key => $data): ?>
+			<tr>
+				<th class="restaurant_name"><?php print($textRestaurant); ?></th>
+				<td class="restaurant_name"><?php print($data['name']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textBusinessHour); ?></th>
+				<td><?php print($data['business_hour']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textHoliday); ?></th>
+				<td><?php print($data['holiday']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textTelNo); ?></th>
+				<td><?php print($data['tel']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textAddress); ?></th>
+				<td><?php print($data['address']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textPR); ?></th>
+				<td><?php print($data['pr']); ?></td>
+			</tr>
+			<tr>
+				<th><?php print($textImage); ?></th>
+				<td><?php print('<a href="' . $data['url'] . '">' .
+					'<img src="' .$data['image_url_1'] . '" border="0" alt="ぐるなびレストラン"></a>'); ?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	<?php else: ?>
+		<div class="search_condition">
+		検索結果は0件です。違う条件でお探しください。
+		</div>
+	<?php endif; ?>
 	</tbody>
 </table>
 
